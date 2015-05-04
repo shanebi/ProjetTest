@@ -1,10 +1,11 @@
 package fr.creationjeuxjava.screens;
 
-import voronoi.Voronoi;
+
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -75,8 +76,9 @@ public class Menu implements Screen {
 
 	private float yDecalage;
 
+	private Sound mp3Sound;
 
-
+	private Sound mp3Sound1;
 
 
 	private int page;
@@ -173,7 +175,8 @@ public class Menu implements Screen {
 
 		boutonRetourSprite.setSize(xUnite(64), yUnite(64));
 
-
+		mp3Sound = Gdx.audio.newSound(Gdx.files.internal("button-28.mp3"));
+		mp3Sound1 = Gdx.audio.newSound(Gdx.files.internal("jungle-run-01.mp3"));
 
 		// La police pour le texte
 
@@ -231,6 +234,10 @@ public class Menu implements Screen {
 		yposBoutonRetour = yUnite(260);
 
 		boutonRetourSprite.setPosition(xposBoutonRetour, yposBoutonRetour);
+		
+		
+		 mp3Sound1.loop();
+		
 
 
 
@@ -256,6 +263,7 @@ public class Menu implements Screen {
 
 					// le bouton 1 (startGame) a été cliqué
 					// game.setScreen(new MapScreen(game));
+					mp3Sound.play();
 					page=1;
 
 				}
