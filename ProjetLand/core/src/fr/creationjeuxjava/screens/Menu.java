@@ -5,6 +5,7 @@ package fr.creationjeuxjava.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -78,7 +79,7 @@ public class Menu implements Screen {
 
 	private Sound mp3Sound;
 
-	private Sound mp3Sound1;
+	private Music music;
 
 
 	private int page;
@@ -176,7 +177,7 @@ public class Menu implements Screen {
 		boutonRetourSprite.setSize(xUnite(64), yUnite(64));
 
 		mp3Sound = Gdx.audio.newSound(Gdx.files.internal("button-28.mp3"));
-		mp3Sound1 = Gdx.audio.newSound(Gdx.files.internal("jungle-run-01.mp3"));
+		Music music = Gdx.audio.newMusic(Gdx.files.internal("jungle-run-01.mp3"));
 
 		// La police pour le texte
 
@@ -236,7 +237,9 @@ public class Menu implements Screen {
 		boutonRetourSprite.setPosition(xposBoutonRetour, yposBoutonRetour);
 		
 		
-		 mp3Sound1.loop();
+		// music.isPlaying();
+		 music.setLooping(true);
+		 music.play();
 		
 
 
